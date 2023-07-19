@@ -1,0 +1,52 @@
+</!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+<form id="registrationForm" action="#" method="post">
+
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="password" name="password" placeholder="Password" required>
+  <script type="text/javascript">
+function validateForm() {
+  // Get the form element.
+  var form = document.getElementById("registrationForm");
+
+  // Check if the name field is empty.
+  var name = form.elements["name"].value;
+  if (name == null || name == "") {
+    alert("Please enter your name.");
+    return false;
+  }
+
+  // Check if the email field is empty or not a valid email address.
+  var email = form.elements["email"].value;
+  if (email == null || email == "" || !/^\w+([\. -]?\w+)*@\w+([\. -]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+
+  // Check if the password field is empty or less than 6 characters long.
+  var password = form.elements["password"].value;
+  if (password == null || password == "" || password.length < 6) {
+    alert("Please enter a password that is at least 6 characters long.");
+    return false;
+  }
+
+  // The form is valid, so submit it.
+  form.submit();
+}
+
+// Add an event listener to the form so that the `validateForm()` function is called when the form is submitted.
+form.addEventListener("submit", validateForm);
+</script>
+  <input type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>
